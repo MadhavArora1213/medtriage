@@ -15,8 +15,12 @@ dependencies = [
     "pydantic",
     "numpy",
     "openai",
-    "python-dotenv"
+    "python-dotenv",
+    "openenv-core>=0.2.0"
 ]
 
+[project.scripts]
+server = "server.app:app"
+
 [tool.setuptools]
-packages = ["env", "tasks"]
+packages = ["env", "tasks", "server"]
