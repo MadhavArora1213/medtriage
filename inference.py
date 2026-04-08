@@ -75,7 +75,7 @@ async def run_episode(task_id: str):
                 
                 # Step the environment
                 result = await env.step(action)
-                reward = result.reward
+                reward = max(0.01, min(0.99, result.reward))
                 rewards.append(reward)
                 
                 # [STEP] step=<n> action=<action_str> reward=<0.00> done=<true|false> error=<msg|null>
@@ -89,8 +89,8 @@ async def run_episode(task_id: str):
             except Exception as e:
                 error_msg = str(e).replace("\n", " ").replace("\r", " ")
                 sanitized_action = action_str.replace('\n', ' ').replace('\r', ' ')
-                print(f"[STEP]  step={step_n} action={sanitized_action} reward=0.00 done=true error={error_msg}", flush=True)
-                rewards.append(0.0)
+                print(f"[STEP]  step={step_n} action={sanitized_action} reward=0.01 done=true error={error_msg}", flush=True)
+                rewards.append(0.01)
                 break
                 
     except Exception as e:
@@ -98,7 +98,7 @@ async def run_episode(task_id: str):
         pass
     finally:
         # [END] success=<true|false> steps=<n> rewards=<r1,r2,...,rn>
-        rewards_csv = ",".join([f"{r:.2f}" for r in rewards]) if rewards else "0.00"
+        rewards_csv = ",".join([f"{r:.2f}" for r in rewards]) if rewards else "0.01"
         print(f"[END]   success={'true' if success else 'false'} steps={step_n} rewards={rewards_csv}", flush=True)
 
 async def main():
