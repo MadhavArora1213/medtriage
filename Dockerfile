@@ -16,6 +16,7 @@ EXPOSE 7860
 ENV API_BASE_URL="https://api.openai.com/v1"
 ENV MODEL_NAME="gpt-4.1-mini"
 ENV HF_TOKEN=""
+ENV PYTHONPATH=/app
 
 # Run the environment server to keep the space 'Running'
 CMD ["python", "server/app.py"]
