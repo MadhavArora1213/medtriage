@@ -88,7 +88,8 @@ async def run_episode(task_id: str):
                     
             except Exception as e:
                 error_msg = str(e).replace("\n", " ").replace("\r", " ")
-                print(f"[STEP]  step={step_n} action={action_str.replace('\\n', ' ')} reward=0.00 done=true error={error_msg}", flush=True)
+                sanitized_action = action_str.replace('\n', ' ').replace('\r', ' ')
+                print(f"[STEP]  step={step_n} action={sanitized_action} reward=0.00 done=true error={error_msg}", flush=True)
                 rewards.append(0.0)
                 break
                 
