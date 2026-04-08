@@ -1,0 +1,12 @@
+# .gitignore
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.github/
+scratch/
+frontend/
+node_modules/
+.next/
+*.log
+validate_submission.py

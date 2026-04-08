@@ -1,0 +1,32 @@
+[
+  {
+    "patient_id": "P001",
+    "chief_complaint": "Sprained ankle after falling while jogging",
+    "age": 28,
+    "sex": "M",
+    "vitals": {"hr": 72, "bp_sys": 120, "rr": 16, "spo2": 99, "temp": 37.0},
+    "true_esi": 5,
+    "max_steps": 8,
+    "red_flags": []
+  },
+  {
+    "patient_id": "P002",
+    "chief_complaint": "Mild sore throat for 2 days",
+    "age": 34,
+    "sex": "F",
+    "vitals": {"hr": 80, "bp_sys": 118, "rr": 18, "spo2": 98, "temp": 37.5},
+    "true_esi": 5,
+    "max_steps": 8,
+    "red_flags": []
+  },
+  {
+    "patient_id": "P003",
+    "chief_complaint": "Small cut on finger from kitchen knife",
+    "age": 45,
+    "sex": "M",
+    "vitals": {"hr": 75, "bp_sys": 125, "rr": 14, "spo2": 100, "temp": 36.8},
+    "true_esi": 4,
+    "max_steps": 8,
+    "red_flags": []
+  }
+]

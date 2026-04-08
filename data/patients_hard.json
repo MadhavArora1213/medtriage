@@ -1,0 +1,22 @@
+[
+  {
+    "patient_id": "P201",
+    "chief_complaint": "Unconscious, cold and clammy skin, very high fever",
+    "age": 75,
+    "sex": "M",
+    "vitals": {"hr": 130, "bp_sys": 75, "rr": 28, "spo2": 88, "temp": 39.5},
+    "true_esi": 1,
+    "max_steps": 15,
+    "red_flags": ["altered_mental_status", "hypotension", "tachycardia"]
+  },
+  {
+    "patient_id": "P202",
+    "chief_complaint": "Sudden onset of crushing chest pain, sweating, shortness of breath",
+    "age": 58,
+    "sex": "F",
+    "vitals": {"hr": 115, "bp_sys": 88, "rr": 24, "spo2": 90, "temp": 37.1},
+    "true_esi": 1,
+    "max_steps": 15,
+    "red_flags": ["chest_pain", "shortness_of_breath", "hypotension"]
+  }
+]

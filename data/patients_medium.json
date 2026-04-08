@@ -1,0 +1,22 @@
+[
+  {
+    "patient_id": "P101",
+    "chief_complaint": "Crushing chest pain and mild nausea for 30 minutes",
+    "age": 62,
+    "sex": "M",
+    "vitals": {"hr": 98, "bp_sys": 145, "rr": 20, "spo2": 95, "temp": 36.9},
+    "true_esi": 2,
+    "max_steps": 12,
+    "red_flags": ["chest_pain", "nausea"]
+  },
+  {
+    "patient_id": "P102",
+    "chief_complaint": "Severe headache and sensitivity to light",
+    "age": 29,
+    "sex": "F",
+    "vitals": {"hr": 88, "bp_sys": 130, "rr": 18, "spo2": 97, "temp": 38.2},
+    "true_esi": 3,
+    "max_steps": 12,
+    "red_flags": ["photophobia"]
+  }
+]

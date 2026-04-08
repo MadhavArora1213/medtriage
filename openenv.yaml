@@ -1,0 +1,53 @@
+# openenv.yaml
+name: MedTriage-Env
+description: "The First AI Medical Triage Decision Environment for OpenEnv. Assess synthetic patient presentations, order diagnostics, identify red flags, and assign ESI levels (1-5)."
+version: "1.0.0"
+author: "Madhav Arora & Kashish Singh"
+
+tasks:
+  - id: "task_01_basic_triage"
+    name: "Basic Triage Classification (Easy)"
+    description: "Walk-in patient with mild symptom. Normal vitals. Assign ESI 4 or 5."
+    difficulty: "easy"
+    reward_type: "dense"
+
+  - id: "task_02_differential"
+    name: "Multi-Symptom Differential (Medium)"
+    description: "Urgent ambiguous presentation. Agent must ask questions and order critical tests (ECG/CBC) before triage."
+    difficulty: "medium"
+    reward_type: "dense"
+
+  - id: "task_03_critical_triage"
+    name: "Critical Multi-System Failure (Hard)"
+    description: "Life-threatening condition (Septic shock or STEMI). Identify life-threat within 5 steps or mortality penalty applies."
+    difficulty: "hard"
+    reward_type: "dense"
+
+observation_space:
+  type: "dict"
+  fields:
+    patient_id: "str"
+    chief_complaint: "str"
+    age: "int"
+    sex: "str"
+    vitals: "dict"
+    available_tests: "list"
+    test_results: "dict"
+    red_flags_identified: "list"
+    questions_asked: "list"
+    step_count: "int"
+    max_steps: "int"
+    episode_done: "bool"
+
+action_space:
+  types:
+    - ask_question: { "question": "str" }
+    - order_test: { "test_name": "str" }
+    - flag_critical: { "symptom": "str" }
+    - assign_triage: { "level": "int" }
+    - request_vitals: { "vital": "str" }
+
+endpoints:
+  reset: "/reset"
+  step: "/step/{session_id}"
+  state: "/state/{session_id}"

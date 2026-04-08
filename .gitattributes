@@ -1,0 +1,7 @@
+*.md text
+*.py text
+*.yaml text
+Dockerfile text
+requirements.txt text
+.gitignore text
+.dockerignore text
