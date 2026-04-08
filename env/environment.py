@@ -93,7 +93,7 @@ class MedTriageEnv:
             
         return StepResult(
             observation=self._build_observation(),
-            reward=float(np.clip(reward, 0.0, 1.0)),
+            reward=float(np.clip(reward, 0.01, 0.99)),
             done=done,
             info=info
         )
