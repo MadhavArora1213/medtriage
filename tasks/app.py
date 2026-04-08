@@ -137,8 +137,8 @@ def assess_triage():
             'patient': patient.to_dict(),
             'assessment': assessment.to_dict(),
             'status': 'completed',
-            'score': 100,
-            'reward': 50
+            'score': 0.99,
+            'reward': 0.5
         }
         cases_db[case_id] = case
         
@@ -229,8 +229,8 @@ def create_or_update_case():
             'assessment': assessment,
             'status': 'completed' if action == 'approved' else 'review_requested' if action == 'review_requested' else 'submitted',
             'action': action,
-            'score': 100,
-            'reward': 50 if action == 'approved' else 25,
+            'score': 0.99,
+            'reward': 0.5 if action == 'approved' else 0.25,
             'createdAt': __import__('datetime').datetime.now().isoformat()
         }
         cases_db[case_id] = case

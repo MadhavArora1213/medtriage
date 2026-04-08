@@ -8,7 +8,7 @@ async def test_grader_01_exact_match():
     action = TriageAction(action_type="assign_triage", parameters={"level": 2})
     patient = {"true_esi": 2}
     score = await grader_01_basic(action, {}, patient)
-    assert score == 1.0
+    assert score == 0.99
 
 @pytest.mark.anyio
 async def test_grader_01_off_by_one():
@@ -32,8 +32,8 @@ async def test_grader_03_critical_score():
     state = {"step_count": 4, "tests_ordered": ["ECG"]}
     patient = {"true_esi": 1}
     score = await grader_03_critical(action, state, patient)
-    # accuracy (1.0 * 0.8) + speed (1.0 * 0.2) - 0.0 penalty = 1.0
-    assert score == 1.0
+    # accuracy (1.0 * 0.8) + speed (1.0 * 0.2) - 0.0 penalty = 1.0 (clamped to 0.99)
+    assert score == 0.99
 
 @pytest.mark.anyio
 async def test_grader_03_critical_penalty():

@@ -85,7 +85,7 @@ class MedTriageEnv:
         done = (action.action_type == "assign_triage" or self._state["step_count"] >= self._patient["max_steps"])
         self._state["done"] = done
         
-        if done and action.action_type == "assign_triage":
+        if done:
             final = await self._grader(action, self._state, self._patient)
             reward += final * 0.6
             info["final_score"] = final
